@@ -38,3 +38,18 @@ resource "aws_route_table_association" "public_a" {
   route_table_id = aws_route_table.public.id
 }
 
+resource "aws_subnet" "public_c" {
+  vpc_id            = aws_vpc.example-vpc.id
+  cidr_block        = "10.10.2.0/24"
+  availability_zone = "ap-northeast-1c"
+
+  tags = {
+    Name = "public-c"
+  }
+}
+
+resource "aws_route_table_association" "public_c" {
+  subnet_id      = aws_subnet.public_c.id
+  route_table_id = aws_route_table.public.id
+}
+
