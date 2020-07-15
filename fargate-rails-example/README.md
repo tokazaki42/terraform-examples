@@ -15,5 +15,3 @@ Fargate構築、Dockerのビルド＆デプロイ
 Fargateスケールアウト/インの設定
 
 
-
-
