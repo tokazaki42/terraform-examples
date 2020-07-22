@@ -1,5 +1,5 @@
-resource "aws_security_group" "public_alb_sg" {
-  name   = "public-alb-sg"
+resource "aws_security_group" "instance-sg" {
+  name   = "web-instance-sg"
   vpc_id = aws_vpc.example-vpc.id
 
   ingress {

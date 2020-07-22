@@ -15,3 +15,7 @@ Fargate構築、Dockerのビルド＆デプロイ
 Fargateスケールアウト/インの設定
 
 
+ecs-cliコマンドでFargateの構築及びデプロイを行います。
+※ FargateはTerraformでも構築できますが、なぜecs-cliコマンドで構築したかというとデプロイ時にFargateをスケールアップ/ダウンできるようにして弾力性3を高めたかったためです。
+らしい。
+
