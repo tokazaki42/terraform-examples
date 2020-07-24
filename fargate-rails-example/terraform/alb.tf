@@ -1,7 +1,7 @@
 // albを作成。
 resource "aws_alb" "alb" {
   name                       = "rails-example"
-  security_groups            = [aws_security_group.public_alb_sg.id]
+  security_groups            = [aws_security_group.instance-sg.id]
   subnets = [
     "${aws_subnet.public_a.id}",
     "${aws_subnet.public_c.id}",
