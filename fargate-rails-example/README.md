@@ -46,7 +46,7 @@ ecs-cli compose --project-name fargate-example --file docker-compose-nginx.yml -
 ecs-cli compose --project-name fargate-example-apache --file docker-compose-apache.yml --ecs-params ecs-params.yml up --launch-type FARGATE
 
 ## サービス up
-ターゲットグループを予め作っておく
+ターゲットグループをTerraformで予め作っておく
 
 --container-name　はdocker-composeでいうservice直下に規定したコンテナの名前
 
@@ -61,8 +61,3 @@ timeout 30m ecs-cli compose \
  --target-group-arn arn:aws:elasticloadbalancing:ap-northeast-1:460256653427:targetgroup/rails-example-tg/7e3d376e4748a585 \
  --region ap-northeast-1 \
  --timeout 30
-
-
-
-## Secret Managerからパラメータを読み出す
- https://docs.aws.amazon.com/ja_jp/AmazonECS/latest/developerguide/cmd-ecs-cli-compose-ecsparams.html
