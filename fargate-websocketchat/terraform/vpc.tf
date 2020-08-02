@@ -53,7 +53,6 @@ resource "aws_route_table_association" "public_c" {
   route_table_id = aws_route_table.public.id
 }
 
-
 output "subnet" {
   value = {
     public_c = aws_subnet.public_c.id

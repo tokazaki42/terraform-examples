@@ -8,8 +8,8 @@ resource "aws_security_group" "instance-sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
-   ingress {
+
+  ingress {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
@@ -22,19 +22,18 @@ resource "aws_security_group" "instance-sg" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
+
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  
-}
 
+}
 
 output "securitygroup" {
   value = {
-    instance-sg_id         = aws_security_group.instance-sg.id
+    instance-sg_id = aws_security_group.instance-sg.id
   }
 }

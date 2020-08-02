@@ -1,7 +1,7 @@
 // albを作成。
 resource "aws_alb" "alb" {
-  name                       = "fargate-go-websocketchat"
-  security_groups            = [aws_security_group.instance-sg.id]
+  name            = "fargate-go-websocketchat"
+  security_groups = [aws_security_group.instance-sg.id]
   subnets = [
     "${aws_subnet.public_a.id}",
     "${aws_subnet.public_c.id}",
@@ -14,18 +14,16 @@ resource "aws_alb" "alb" {
   }
 }
 
-// albのターゲットグループ
 resource "aws_alb_target_group" "alb" {
-  name     = "fargate-go-websocketchat"
-  port     = 8080
-  protocol = "HTTP"
-  vpc_id   = aws_vpc.example-vpc.id
+  name        = "fargate-go-websocketchat"
+  port        = 8080
+  protocol    = "HTTP"
+  vpc_id      = aws_vpc.example-vpc.id
   target_type = "ip"
 
   health_check {
     interval            = 60
     path                = "/health"
-    // NOTE: defaultはtraffic-port
     port                = 8080
     protocol            = "HTTP"
     timeout             = 20
@@ -33,8 +31,6 @@ resource "aws_alb_target_group" "alb" {
     matcher             = 200
   }
 }
-
-
 
 resource "aws_alb_listener" "alb" {
   load_balancer_arn = "${aws_alb.alb.arn}"
@@ -46,7 +42,6 @@ resource "aws_alb_listener" "alb" {
     type             = "forward"
   }
 }
-
 
 output "alb" {
   value = {
