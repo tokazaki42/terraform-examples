@@ -1,0 +1,4 @@
+access_key = "your access key"
+secret_key = "your secret key"
+region     = "ap-northeast-1"
+certificate_arn = "arn:aws:acm:ap-northeast-1:111111111111:certificate/11111-11111-1111"
