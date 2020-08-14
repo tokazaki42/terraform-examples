@@ -1,0 +1,41 @@
+{
+    "cluster": "fargate-go-example",
+    "serviceName": "fargate-go-example",
+    "taskDefinition": "fargate-go-example:4",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:ap-northeast-1:460256653427:targetgroup/fargate-go-example/077971b302a95ac2",
+            "containerName": "fargate-go-example",
+            "containerPort": 8080
+        }
+    ],
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "platformVersion": "1.4.0",
+    "role": "",
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-02f3cf760b324d637",
+                "subnet-0c36b71dc5e85f4a5"
+            ],
+            "securityGroups": [
+                "sg-0dffaf10baf842450"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    },
+    "healthCheckGracePeriodSeconds": 0,
+    "schedulingStrategy": "REPLICA",
+    "deploymentController": {
+        "type": "ECS"
+    },
+    "tags": [
+        {
+            "key": "Name",
+            "value": "fargate-go-example-service"
+        }
+    ],
+    "enableECSManagedTags": true,
+    "propagateTags": "TASK_DEFINITION"
+}
