@@ -14,40 +14,40 @@ resource "aws_alb" "alb" {
   }
 }
 
-resource "aws_alb_target_group" "alb" {
-  
-  name        = "fargate-go-example"
-  port        = 8080
-  protocol    = "HTTP"
-  vpc_id      = aws_vpc.example-vpc.id
-  target_type = "ip"
+#resource "aws_alb_target_group" "alb" {
+#  count = 3
+#  name        = "fargate-go-example-${count.index+1}"
+#  port        = 8080
+#  protocol    = "HTTP"
+#  vpc_id      = aws_vpc.example-vpc.id
+#  target_type = "ip"
 
-  health_check {
-    interval            = 60
-    path                = "/"
-    port                = 8080
-    protocol            = "HTTP"
-    timeout             = 20
-    unhealthy_threshold = 4
-    matcher             = 200
-  }
-}
+#  health_check {
+#    interval            = 60
+#    path                = "/"
+#    port                = 8080
+#    protocol            = "HTTP"
+#    timeout             = 20
+#    unhealthy_threshold = 4
+#    matcher             = 200
+#  }
+#}
 
-resource "aws_alb_listener" "alb" {
-  load_balancer_arn = "${aws_alb.alb.arn}"
-  port              = "80"
-  protocol          = "HTTP"
+#resource "aws_alb_listener" "alb" {
+#  load_balancer_arn = "${aws_alb.alb.arn}"
+#  port              = "80"
+#  protocol          = "HTTP"
 
-  default_action {
-    target_group_arn = "${aws_alb_target_group.alb.arn}"
-    type             = "forward"
-  }
-}
+#  default_action {
+#    target_group_arn = "${aws_alb_target_group.alb.0.arn}"
+#    type             = "forward"
+#  }
+#}
 
-output "alb" {
-  value = {
-    dns_name         = "${aws_alb.alb.dns_name}"
-    arn              = "${aws_alb.alb.arn}"
-    target_group_arn = "${aws_alb_target_group.alb.arn}"
-  }
-}
+#output "alb" {
+#  value = {
+#    dns_name         = "${aws_alb.alb.dns_name}"
+#    arn              = "${aws_alb.alb.arn}"
+#    target_group_arn = "${aws_alb_target_group.alb.0.arn}"
+#  }
+#}
