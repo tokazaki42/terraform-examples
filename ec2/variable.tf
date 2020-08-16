@@ -18,7 +18,6 @@ variable "instance_type" {
   default = "t3.nano"
 }
 
-
 variable "instance_ami" {
   description = "Please see: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#finding-an-ami-console"
   type = string

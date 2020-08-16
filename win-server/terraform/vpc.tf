@@ -30,7 +30,7 @@ resource "aws_route_table" "public" {
 resource "aws_subnet" "public_a" {
   vpc_id = aws_vpc.this.id
   cidr_block = "10.1.1.0/24"
-  availability_zone = "ap-northeast-1a"
+  availability_zone = "${var.region}a"
 
   tags = {
     Name = "public-a"
@@ -40,7 +40,7 @@ resource "aws_subnet" "public_a" {
 resource "aws_subnet" "public_c" {
   vpc_id = aws_vpc.this.id
   cidr_block = "10.1.2.0/24"
-  availability_zone = "ap-northeast-1c"
+  availability_zone = "${var.region}c"
 
   tags = {
     Name = "public-c"

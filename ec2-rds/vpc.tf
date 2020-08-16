@@ -26,7 +26,7 @@ resource "aws_route_table" "public" {
 resource "aws_subnet" "public_a" {
   vpc_id            = aws_vpc.example-vpc.id
   cidr_block        = "10.10.1.0/24"
-  availability_zone = "ap-northeast-1a"
+  availability_zone = "${var.region}a"
 
   tags = {
     Name = "public-a"
@@ -42,7 +42,7 @@ resource "aws_route_table_association" "public_a" {
 resource "aws_subnet" "private-db1" {
   vpc_id            = aws_vpc.example-vpc.id
     cidr_block = "10.10.10.0/24"
-    availability_zone = "ap-northeast-1a"
+  availability_zone = "${var.region}a"
     tags = {
       Name = "private-db1"
     }
@@ -51,7 +51,7 @@ resource "aws_subnet" "private-db1" {
 resource "aws_subnet" "private-db2" {
   vpc_id            = aws_vpc.example-vpc.id
     cidr_block = "10.10.11.0/24"
-    availability_zone = "ap-northeast-1c"
+  availability_zone = "${var.region}c"
     tags = {
       Name = "private-db2"
     }

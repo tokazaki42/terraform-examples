@@ -18,8 +18,10 @@ variable "instance_type" {
 }
 
 variable "instance_ami" {
-  type    = string
-  default = "ami-0cfa3caed4b487e77"
+  description = "Please see: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html#finding-an-ami-console"
+  type = string
+  default     = "ami-0cfa3caed4b487e77"      ## Ubuntu18.04 ap-northeast-1: Tokyo Region
+#  default = "ami-0a634ae95e11c6f91"         ## Ubuntu18.04 us-west-2: Oregon Region                      
 }
 
 variable "certificate_arn" {}
