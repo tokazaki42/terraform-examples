@@ -5,6 +5,7 @@ This is a personal repository aims to learn AWS and Terraform.
 Each Terraform code associates with following blog posts.
 https://www.learningcloudinfra.tokyo/en/aws/
 
+I'm using Terraform v0.12.28 and only tried codes on this version.
 
 ## Preparation 
 - Install Terraform on your laptop.
@@ -15,17 +16,15 @@ https://www.learningcloudinfra.tokyo/en/aws/
 - Change values in variable.tf.
 
 
-## TryTerraform.
+## Try Terraform
 Initialize Terraform 
 ```
 terraform init
-
 ```
 
  Plan the changes 
 ```
 terraform plan -var-file=aws.tfvars
-
 ```
 
 Apply the execution plan 
